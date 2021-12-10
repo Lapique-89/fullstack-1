@@ -51,3 +51,36 @@ $name = 'Grae';
 $quote = 'Practice makes perfect'; 
 echo quotable($name, $quote) . '<br>';
 
+//Return the number (count) of vowels in the given string.
+function getCount(string $str):int {
+  $vowelsCount = 0;
+  $vowels = ['a', 'e', 'i', 'o', 'u'];
+  foreach ($vowels as $vowel) {
+    $vowelsCount += substr_count($str, $vowel);
+  }  
+  return $vowelsCount;
+}
+$string = 'Return the number (count) of vowels in the given string. yy? ';
+echo getCount($string) . '<br>';
+
+//Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+function persistence(int $num): int {
+  function multiplication($a, $b)//тут тоже сдаюсь, на сайте ругается на функцию внутри функции, хотя тут работает
+  {
+    (int) $a *= (int) $b; 
+    return $a;
+  }
+  $count = 0;
+
+    while (strlen((string) $num) > 1) {      
+        $num = str_split( (string) $num);       
+        $num = array_reduce($num, "multiplication",1);
+        $count++;
+    }
+    return $count;
+}
+
+$number = 27;
+echo persistence($number) . '<br>';
+
+
