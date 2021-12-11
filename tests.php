@@ -13,7 +13,7 @@ function litres($t) {
 {
   $strMain = '';
   if ($n>0){
-    for ($i=0; $i<$n; $i++) {
+    for ($i = 0; $i < $n; $i++) {
       $strMain .= $str;
     }
   } 
@@ -21,19 +21,12 @@ function litres($t) {
 }
 echo  repeatStr(6, "7") . '<br>';
 
-//Return the Nth Even Number - тестирование не прошла, не понимаю, в чем ошибка 'Failed asserting that null matches expected 2.'
+//Return the Nth Even Number - исправила просто на вывод
 function nthEven($n) {
-  if ($n == 0) {
-    echo 'The input will not be 0';
-  } else if ($n == 2){
-    echo $n . ' --> ' . 1;
-  } else {
-    echo $n . ' --> ' . (($n - 1) * 2);
-  }    
+  return (($n - 1) * 2);    
 }
 $n = 4;
-nthEven($n);
-echo '<br>';
+echo nthEven($n) . '<br>';
 
 //Complete the solution so that it reverses the string passed into it.
 function solution($str) {
@@ -75,6 +68,8 @@ function persistence(int $num): int {
     while (strlen((string) $num) > 1) {      
         $num = str_split( (string) $num);       
         $num = array_reduce($num, "multiplication",1);
+
+
         $count++;
     }
     return $count;
