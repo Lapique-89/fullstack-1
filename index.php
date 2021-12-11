@@ -1,20 +1,42 @@
 <?php
 
-echo "Hello, World";//вывод строки на экран
-echo '<br>';
+//require 'funcs.php';//подключить 
+//require_once 'funcs.php';//подключить один раз
+//include 'funcs11111.php';
+include_once 'src/funcs.php';//'src/funcs.php' - если в папке или полный путь
+echo "<select>";
+for ($i = 0; $i < 5; $i++) {
+    include 'src/option.php.php';
+}
+echo "<select>";
+function plusOne ($number) {
+    $number = $number + 1;
+}
 
-echo 'Hello!';
-echo '<br>';
-echo 55;
-echo '<br>';
-echo '<button>Click</button>';
-echo '<br>';
-echo date('d.m.Y H:i:s');
-echo '<br>';
+$a = 10;
+echo "$a<br>";
+plusOne($a);
+echo "$a<br>";
 
-echo 2+1;
+var_dump($number);
+//не надо так делать!!!!!!
+function wrongPlusOne () {
+   global $a;//берем глобальную, извне
+   $a = $a+1;
 
-echo '<br>';
+}
 
-echo 2 ** 3;//возведение в степень
-echo 10 % 3;
+dump($GLOBALS);
+
+
+
+
+
+
+
+
+
+//echo date('d.m.Y H:i:s');
+//echo 2 ** 3;//возведение в степень
+
+
