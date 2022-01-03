@@ -2,7 +2,9 @@
 $title = 'Список продуктов';
 require_once '../../templates/header.php';
 
-$query = 'SELECT * FROM products';
+$query = "SELECT p.id, p.name, p.price, p.picture, p.description, c.name as category
+        FROM products as p
+        JOIN categories as c ON p.category_id = c.id";
 $res = $pdo->query($query);
 $products = $res->fetchAll();
 
@@ -78,13 +80,13 @@ if (isset($_SESSION['createProductErrors'])) {
                 <td>{$product['name']}</td>
                 <td>{$product['description']}</td>
                 <td>{$product['price']}</td>
-                <td>{$product['category_id']}</td>
+                <td>{$product['category']}</td>
                 <td class='text-center'>
                 <img height='100' src='{$path}{$product['picture']}'>
                 </td>
              </tr>
              ";
-         }c
+         }
          ?>
  
      </tbody>
