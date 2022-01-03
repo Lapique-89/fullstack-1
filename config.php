@@ -1,4 +1,5 @@
 <?php
+define('PRODUCTS_IMAGE_PATH', '/images/products/');
 session_start();
 $user =  'root';
 $password ='';
